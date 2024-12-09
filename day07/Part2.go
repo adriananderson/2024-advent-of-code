@@ -1,7 +1,7 @@
 package day07
 
 import (
-	"2024/utils"
+	"github.com/adriananderson/2024-advent-of-code/utils"
 	"strconv"
 	"strings"
 )

@@ -1,7 +1,7 @@
 package day06
 
 import (
-	"2024/utils"
+	"github.com/adriananderson/2024-advent-of-code/utils"
 )
 
 type Position struct {
@@ -24,7 +24,7 @@ func Part1() int {
 	var facing = NORTH
 	var obstructions [][]bool
 	var visited [][]bool
-	
+
 	//read in initial state
 	obstructions, guard = readFile(fileName)
 

@@ -1,16 +1,16 @@
 package main
 
 import (
-	"2024/day01"
-	"2024/day02"
-	"2024/day03"
-	"2024/day04"
-	"2024/day05"
-	"2024/day06"
-	"2024/day07"
-	"2024/day08"
-	"2024/day09"
 	"fmt"
+	"github.com/adriananderson/2024-advent-of-code/day01"
+	"github.com/adriananderson/2024-advent-of-code/day02"
+	"github.com/adriananderson/2024-advent-of-code/day03"
+	"github.com/adriananderson/2024-advent-of-code/day04"
+	"github.com/adriananderson/2024-advent-of-code/day05"
+	"github.com/adriananderson/2024-advent-of-code/day06"
+	"github.com/adriananderson/2024-advent-of-code/day07"
+	"github.com/adriananderson/2024-advent-of-code/day08"
+	"github.com/adriananderson/2024-advent-of-code/day09"
 	"time"
 )
 
