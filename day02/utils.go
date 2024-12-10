@@ -1,6 +1,6 @@
 package day02
 
-import "2024/utils"
+import "github.com/adriananderson/2024-advent-of-code/utils"
 
 func IsSafeUpReport(report []int) bool {
 	isSafe := true

@@ -2,7 +2,6 @@ package day08
 
 import (
 	"github.com/adriananderson/2024-advent-of-code/utils"
-	"strconv"
 	"strings"
 )
 
@@ -16,7 +15,7 @@ func Part1() int {
 	var fileName = "day08/day08.txt"
 
 	antennas := make(map[string][]Position)
-	antinodes := make(map[string]string)
+	antinodes := make(map[Position]string)
 
 	maxColumn, maxRow := 0, 0
 
@@ -51,16 +50,16 @@ func Part1() int {
 				antinodeColumn := firstAntenna.column - (secondAntenna.column - firstAntenna.column)
 
 				if antinodeRow >= 0 && antinodeColumn >= 0 && antinodeRow <= maxRow && antinodeColumn <= maxColumn {
-					key := strconv.Itoa(antinodeRow) + "-" + strconv.Itoa(antinodeColumn)
-					antinodes[key] = label
+					antinodePosition := Position{row: antinodeRow, column: antinodeColumn}
+					antinodes[antinodePosition] = label
 				}
 
 				antinodeRow = secondAntenna.row + (secondAntenna.row - firstAntenna.row)
 				antinodeColumn = secondAntenna.column + (secondAntenna.column - firstAntenna.column)
 
 				if antinodeRow >= 0 && antinodeColumn >= 0 && antinodeRow <= maxRow && antinodeColumn <= maxColumn {
-					key := strconv.Itoa(antinodeRow) + "-" + strconv.Itoa(antinodeColumn)
-					antinodes[key] = label
+					antinodePosition := Position{row: antinodeRow, column: antinodeColumn}
+					antinodes[antinodePosition] = label
 				}
 			}
 		}

@@ -2,7 +2,6 @@ package day08
 
 import (
 	"github.com/adriananderson/2024-advent-of-code/utils"
-	"strconv"
 	"strings"
 )
 
@@ -11,7 +10,7 @@ func Part2() int {
 	var fileName = "day08/day08.txt"
 
 	antennas := make(map[string][]Position)
-	antinodes := make(map[string]string)
+	antinodes := make(map[Position]string)
 
 	maxColumn, maxRow := 0, 0
 
@@ -64,7 +63,7 @@ func inBounds(row, column, maxRow, maxColumn int) bool {
 	return row >= 0 && row <= maxRow && column >= 0 && column <= maxColumn
 }
 
-func placeAntinode(antinodeRow int, antinodeColumn int, antinodes map[string]string, label string) {
-	key := strconv.Itoa(antinodeRow) + "-" + strconv.Itoa(antinodeColumn)
-	antinodes[key] = label
+func placeAntinode(antinodeRow int, antinodeColumn int, antinodes map[Position]string, label string) {
+	antinodePosition := Position{row: antinodeRow, column: antinodeColumn}
+	antinodes[antinodePosition] = label
 }
