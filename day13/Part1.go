@@ -25,21 +25,15 @@ func Part1() int {
 	result := 0
 
 	for _, machine := range machines {
-		bestToSpend := 1000
 		for ii := 0; ii <= 100; ii++ {
 			for jj := 0; jj <= 100; jj++ {
 				if (machine.aa.row*ii+machine.bb.row*jj) == machine.prize.row &&
 					(machine.aa.column*ii+machine.bb.column*jj) == machine.prize.column {
 					cost := ii*3 + jj
 					//fmt.Printf("%d  solution: aa %d, bb %d   cost %d\n", zz, ii, jj, cost)
-					if cost < bestToSpend {
-						bestToSpend = cost
-					}
+					result += cost
 				}
 			}
-		}
-		if bestToSpend < 1000 {
-			result += bestToSpend
 		}
 	}
 
