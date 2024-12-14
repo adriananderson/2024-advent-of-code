@@ -19,7 +19,7 @@ type Machine struct {
 
 func Part1() int {
 	defer utils.Timer("13-1")()
-	var fileName = "day13/day13-test.txt"
+	var fileName = "day13/day13.txt"
 
 	machines := readFile(fileName)
 	result := 0
