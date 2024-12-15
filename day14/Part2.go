@@ -1,7 +1,6 @@
 package day14
 
 import (
-	"fmt"
 	"github.com/adriananderson/2024-advent-of-code/utils"
 )
 
@@ -26,8 +25,8 @@ func Part2() int {
 		if score < bestSafetyFactor {
 			bestSafetyFactor = score
 			lowestTime = ii + 1
-			fmt.Printf("better safety %d %d\n", ii, score)
-			printRobots(robotPos, maxXX, maxYY)
+			//fmt.Printf("better safety %d %d\n", ii, score)
+			//printRobots(robotPos, maxXX, maxYY)
 		}
 	}
 
