@@ -30,10 +30,10 @@ func Part1(fileName string) int {
 	mazeMap, startPosition, endPosition := readFile(fileName)
 
 	scoreMap := make(map[int][]PositionFacing)
-	scoreMap[0] = []PositionFacing{PositionFacing{endPosition.xx, endPosition.yy, NORTH},
-		PositionFacing{endPosition.xx, endPosition.yy, EAST},
-		PositionFacing{endPosition.xx, endPosition.yy, SOUTH},
-		PositionFacing{endPosition.xx, endPosition.yy, WEST}}
+	scoreMap[0] = []PositionFacing{{endPosition.xx, endPosition.yy, NORTH},
+		{endPosition.xx, endPosition.yy, EAST},
+		{endPosition.xx, endPosition.yy, SOUTH},
+		{endPosition.xx, endPosition.yy, WEST}}
 
 	positionScoreMap := make(map[PositionFacing]int)
 	positionScoreMap[PositionFacing{endPosition.xx, endPosition.yy, NORTH}] = 0
