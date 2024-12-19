@@ -26,40 +26,35 @@ func Part2() int {
 				numbers[ii], _ = strconv.Atoi(num)
 			}
 
-			answers := genAnswers2(numbers)
-			//check this line
-		lineCheck:
-			for _, ans := range answers {
-				if ans == answer {
-					result += answer
-					break lineCheck
-				}
+			if isSolveable2(numbers, answer) {
+				result += answer
 			}
-
 		}
 	}
 
 	return result
 }
 
-// takes a list of numbers and generates all possible solutions
-func genAnswers2(numbers []int) []int {
-	return genAnswerSlice2(numbers[0], numbers[1:])
-}
-
-func genAnswerSlice2(front int, numbers []int) []int {
-
-	sum := front + numbers[0]
-	product := front * numbers[0]
-	numString := []string{strconv.Itoa(front), strconv.Itoa(numbers[0])}
-	orString := strings.Join(numString, "")
-	or, _ := strconv.Atoi(orString)
-
-	if len(numbers) > 1 {
-		sumSlice := genAnswerSlice2(sum, numbers[1:])
-		productSlice := genAnswerSlice2(product, numbers[1:])
-		orSlice := genAnswerSlice2(or, numbers[1:])
-		return append(sumSlice, append(productSlice, orSlice...)...)
+func isSolveable2(numbers []int, answer int) bool {
+	if len(numbers) == 0 {
+		return false
 	}
-	return []int{sum, product, or}
+	lastNumber := numbers[len(numbers)-1]
+	if len(numbers) == 1 {
+		return lastNumber == answer
+	}
+	if answer%lastNumber == 0 && isSolveable2(numbers[:len(numbers)-1], answer/lastNumber) {
+		return true
+	}
+	if answer > lastNumber && isSolveable2(numbers[:len(numbers)-1], answer-lastNumber) {
+		return true
+	}
+
+	answerString := strconv.Itoa(answer)
+	lastNumberString := strconv.Itoa(lastNumber)
+	if len(answerString) > len(lastNumberString) && strings.HasSuffix(answerString, lastNumberString) {
+		newAnswer, _ := strconv.Atoi(answerString[:len(answerString)-len(lastNumberString)])
+		return isSolveable2(numbers[:len(numbers)-1], newAnswer)
+	}
+	return false
 }

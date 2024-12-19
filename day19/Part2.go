@@ -5,7 +5,7 @@ import (
 )
 
 func Part2(fileName string) int {
-	defer utils.Timer("19-1")()
+	defer utils.Timer("19-2")()
 
 	availablePatterns, desiredPatterns, maxAvailableLength := readFile(fileName)
 	result := 0

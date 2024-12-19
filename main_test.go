@@ -9,6 +9,14 @@ import (
 	"testing"
 )
 
+func Test7First(t *testing.T) {
+	val := day07.Part1()
+	expected := 3598800864292
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
 func Test7Second(t *testing.T) {
 	val := day07.Part2()
 	expected := 340362529351427

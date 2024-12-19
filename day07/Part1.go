@@ -26,36 +26,28 @@ func Part1() int {
 				numbers[ii], _ = strconv.Atoi(num)
 			}
 
-			answers := genAnswers(numbers)
-			//check this line
-		lineCheck:
-			for _, ans := range answers {
-				if ans == answer {
-					result += answer
-					break lineCheck
-				}
+			if isSolveable(numbers, answer) {
+				result += answer
 			}
-
 		}
 	}
 
 	return result
 }
 
-// takes a list of numbers and generates all possible solutions
-func genAnswers(numbers []int) []int {
-	return genAnswerSlice(numbers[0], numbers[1:])
-}
-
-func genAnswerSlice(front int, numbers []int) []int {
-
-	sum := front + numbers[0]
-	product := front * numbers[0]
-
-	if len(numbers) > 1 {
-		sumSlice := genAnswerSlice(sum, numbers[1:])
-		productSlice := genAnswerSlice(product, numbers[1:])
-		return append(sumSlice, productSlice...)
+func isSolveable(numbers []int, answer int) bool {
+	if len(numbers) == 0 {
+		return false
 	}
-	return []int{sum, product}
+	lastNumber := numbers[len(numbers)-1]
+	if len(numbers) == 1 {
+		return lastNumber == answer
+	}
+	if answer%lastNumber == 0 && isSolveable(numbers[0:len(numbers)-1], answer/lastNumber) {
+		return true
+	}
+	if answer > lastNumber && isSolveable(numbers[0:len(numbers)-1], answer-lastNumber) {
+		return true
+	}
+	return false
 }
