@@ -26,7 +26,7 @@ func Part1() int {
 				numbers[ii], _ = strconv.Atoi(num)
 			}
 
-			if isSolveable(numbers, answer) {
+			if isSolvable(numbers, answer) {
 				result += answer
 			}
 		}
@@ -35,7 +35,7 @@ func Part1() int {
 	return result
 }
 
-func isSolveable(numbers []int, answer int) bool {
+func isSolvable(numbers []int, answer int) bool {
 	if len(numbers) == 0 {
 		return false
 	}
@@ -43,10 +43,10 @@ func isSolveable(numbers []int, answer int) bool {
 	if len(numbers) == 1 {
 		return lastNumber == answer
 	}
-	if answer%lastNumber == 0 && isSolveable(numbers[0:len(numbers)-1], answer/lastNumber) {
+	if answer%lastNumber == 0 && isSolvable(numbers[0:len(numbers)-1], answer/lastNumber) {
 		return true
 	}
-	if answer > lastNumber && isSolveable(numbers[0:len(numbers)-1], answer-lastNumber) {
+	if answer > lastNumber && isSolvable(numbers[0:len(numbers)-1], answer-lastNumber) {
 		return true
 	}
 	return false

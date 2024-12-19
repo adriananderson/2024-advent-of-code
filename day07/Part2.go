@@ -26,7 +26,7 @@ func Part2() int {
 				numbers[ii], _ = strconv.Atoi(num)
 			}
 
-			if isSolveable2(numbers, answer) {
+			if isSolvable2(numbers, answer) {
 				result += answer
 			}
 		}
@@ -35,7 +35,7 @@ func Part2() int {
 	return result
 }
 
-func isSolveable2(numbers []int, answer int) bool {
+func isSolvable2(numbers []int, answer int) bool {
 	if len(numbers) == 0 {
 		return false
 	}
@@ -43,10 +43,10 @@ func isSolveable2(numbers []int, answer int) bool {
 	if len(numbers) == 1 {
 		return lastNumber == answer
 	}
-	if answer%lastNumber == 0 && isSolveable2(numbers[:len(numbers)-1], answer/lastNumber) {
+	if answer%lastNumber == 0 && isSolvable2(numbers[:len(numbers)-1], answer/lastNumber) {
 		return true
 	}
-	if answer > lastNumber && isSolveable2(numbers[:len(numbers)-1], answer-lastNumber) {
+	if answer > lastNumber && isSolvable2(numbers[:len(numbers)-1], answer-lastNumber) {
 		return true
 	}
 
@@ -54,7 +54,7 @@ func isSolveable2(numbers []int, answer int) bool {
 	lastNumberString := strconv.Itoa(lastNumber)
 	if len(answerString) > len(lastNumberString) && strings.HasSuffix(answerString, lastNumberString) {
 		newAnswer, _ := strconv.Atoi(answerString[:len(answerString)-len(lastNumberString)])
-		return isSolveable2(numbers[:len(numbers)-1], newAnswer)
+		return isSolvable2(numbers[:len(numbers)-1], newAnswer)
 	}
 	return false
 }
