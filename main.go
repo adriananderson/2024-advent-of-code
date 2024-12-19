@@ -20,6 +20,7 @@ import (
 	"github.com/adriananderson/2024-advent-of-code/day16"
 	"github.com/adriananderson/2024-advent-of-code/day17"
 	"github.com/adriananderson/2024-advent-of-code/day18"
+	"github.com/adriananderson/2024-advent-of-code/day19"
 	"time"
 )
 
@@ -80,6 +81,9 @@ func main() {
 	//// Day 18
 	fmt.Printf("Final result Day 18 part 1: %d\n", day18.Part1("day18/day18.txt", 70, 1024))
 	fmt.Printf("Final result Day 18 part 2: %s\n", day18.Part2("day18/day18.txt", 70, 1024))
+	//// Day 19
+	fmt.Printf("Final result Day 19 part 1: %v\n", day19.Part1("day19/day19.txt"))
+	fmt.Printf("Final result Day 19 part 2: %d\n", day19.Part2("day19/day19.txt"))
 
 	fmt.Printf("... took %v\n", time.Since(start))
 }
