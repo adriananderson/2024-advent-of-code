@@ -6,6 +6,7 @@ import (
 	"github.com/adriananderson/2024-advent-of-code/day17"
 	"github.com/adriananderson/2024-advent-of-code/day18"
 	"github.com/adriananderson/2024-advent-of-code/day19"
+	"github.com/adriananderson/2024-advent-of-code/day20"
 	"testing"
 )
 
@@ -132,6 +133,63 @@ func Test19Two(t *testing.T) {
 func Test19TwoReal(t *testing.T) {
 	val := day19.Part2("day19/day19.txt")
 	expected := 616234236468263
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20One(t *testing.T) {
+	val := day20.Part1("day20/day20-test.txt", 20)
+	expected := 5
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20Real(t *testing.T) {
+	val := day20.Part1("day20/day20.txt", 100)
+	expected := 1521
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20Two76(t *testing.T) {
+	val := day20.Part2("day20/day20-test.txt", 76)
+	expected := 3
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20Two74(t *testing.T) {
+	val := day20.Part2("day20/day20-test.txt", 74)
+	expected := 7
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20Two60(t *testing.T) {
+	val := day20.Part2("day20/day20-test.txt", 60)
+	expected := 129
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20Two50(t *testing.T) {
+	val := day20.Part2("day20/day20-test.txt", 50)
+	expected := 285
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test20TwoReal(t *testing.T) {
+	//day20.Main()
+	val := day20.Part2("day20/day20.txt", 100)
+	expected := 1013106
 	if val != expected {
 		t.Errorf("expected %d, got %d", expected, val)
 	}
