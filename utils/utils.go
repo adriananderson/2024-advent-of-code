@@ -14,6 +14,13 @@ func Timer(name string) func() {
 	}
 }
 
+func Abs(num int) int {
+	if num < 0 {
+		return -num
+	}
+	return num
+}
+
 func ReadFileAsText(path string) (string, error) {
 	var fileName string = path
 	file, err := os.ReadFile(fileName)

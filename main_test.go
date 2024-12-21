@@ -7,6 +7,7 @@ import (
 	"github.com/adriananderson/2024-advent-of-code/day18"
 	"github.com/adriananderson/2024-advent-of-code/day19"
 	"github.com/adriananderson/2024-advent-of-code/day20"
+	"github.com/adriananderson/2024-advent-of-code/day21"
 	"testing"
 )
 
@@ -190,6 +191,73 @@ func Test20TwoReal(t *testing.T) {
 	//day20.Main()
 	val := day20.Part2("day20/day20.txt", 100)
 	expected := 1013106
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test21One(t *testing.T) {
+	val := day21.Part1("day21/day21-test.txt")
+	expected := 126384
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test21OneReal(t *testing.T) {
+	val := day21.Part1("day21/day21.txt")
+	expected := 278568
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test21OneFirst(t *testing.T) {
+	numericPaths := day21.PreCalcNumericPaths()
+	val := day21.ProcessKeyMap("029A", numericPaths)
+	expected := "<A^A>^^AvvvA"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
+	}
+}
+
+func Test21OneSecond(t *testing.T) {
+	directionPaths := day21.PreCalcDirectionPaths()
+	val := day21.ProcessKeyMap("<A^A>^^AvvvA", directionPaths)
+	expected := "v<<A>>^A<A>AvA<^AA>A<vAAA>^A"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
+	}
+}
+
+func Test21OneThird(t *testing.T) {
+	directionPaths := day21.PreCalcDirectionPaths()
+	val := day21.ProcessKeyMap("v<<A>>^A<A>AvA<^AA>A<vAAA>^A", directionPaths)
+	expected := "<vA<AA>>^AvAA<^A>Av<<A>>^AvA^A<vA>^Av<<A>^A>AAvA^Av<<A>A>^AAAvA<^A>A"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
+	}
+}
+
+func Test21Two(t *testing.T) {
+	val := day21.Part2("day21/day21-test.txt", 2)
+	expected := 126384
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test21TwoSecond(t *testing.T) {
+	val := day21.Part2("day21/day21.txt", 2)
+	expected := 278568
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test21TwoReal(t *testing.T) {
+	val := day21.Part2("day21/day21.txt", 25)
+	expected := 341460772681012
 	if val != expected {
 		t.Errorf("expected %d, got %d", expected, val)
 	}
