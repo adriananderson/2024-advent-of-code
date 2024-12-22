@@ -8,6 +8,8 @@ import (
 	"github.com/adriananderson/2024-advent-of-code/day19"
 	"github.com/adriananderson/2024-advent-of-code/day20"
 	"github.com/adriananderson/2024-advent-of-code/day21"
+	"github.com/adriananderson/2024-advent-of-code/day22"
+	"reflect"
 	"testing"
 )
 
@@ -260,5 +262,51 @@ func Test21TwoReal(t *testing.T) {
 	expected := 341460772681012
 	if val != expected {
 		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test22OneFirst(t *testing.T) {
+	val := day22.Part1("day22/day22-test2.txt", 10)
+	expected := 5908254
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test22OneSecond(t *testing.T) {
+	val := day22.Part1("day22/day22-test.txt", 2000)
+	expected := 37327623
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test22OneReal(t *testing.T) {
+	val := day22.Part1("day22/day22.txt", 2000)
+	expected := 17163502021
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test22TwoReal(t *testing.T) {
+	val := day22.Part2("day22/day22.txt", 2000)
+	expected := 1938
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test22TwoMakeWord(t *testing.T) {
+	val := day22.CreateLabelForPriceChanges(-9, -8, 0, 9)
+	expected := "ABJS"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
+	}
+
+	priceChanges := day22.PriceChangesFromLabel("ABJS")
+	expectedPriceChanges := [4]int{-9, -8, 0, 9}
+	if !reflect.DeepEqual(expectedPriceChanges, priceChanges) {
+		t.Errorf("expected %v, got %v", expectedPriceChanges, priceChanges)
 	}
 }
