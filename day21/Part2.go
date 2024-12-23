@@ -181,7 +181,7 @@ func getCountAfterRobots(input []string, robot int, maxNumRobots int, cache map[
 
 	count := 0
 	for _, s := range splitSeq {
-		c := getCountAfterRobots(s, maxNumRobots, robot+1, cache, directionalMap)
+		c := getCountAfterRobots(s, robot+1, maxNumRobots, cache, directionalMap)
 		if _, ok := cache[strings.Join(s, "")]; !ok {
 			cache[strings.Join(s, "")] = make([]int, maxNumRobots)
 		}

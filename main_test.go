@@ -9,6 +9,7 @@ import (
 	"github.com/adriananderson/2024-advent-of-code/day20"
 	"github.com/adriananderson/2024-advent-of-code/day21"
 	"github.com/adriananderson/2024-advent-of-code/day22"
+	"github.com/adriananderson/2024-advent-of-code/day23"
 	"testing"
 )
 
@@ -293,5 +294,37 @@ func Test22TwoReal(t *testing.T) {
 	expected := 1938
 	if val != expected {
 		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test23OneFirst(t *testing.T) {
+	val := day23.Part1("day23/day23-test.txt")
+	expected := 7
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test23OneReal(t *testing.T) {
+	val := day23.Part1("day23/day23.txt")
+	expected := 1370
+	if val != expected {
+		t.Errorf("expected %d, got %d", expected, val)
+	}
+}
+
+func Test23TwoFirst(t *testing.T) {
+	val := day23.Part2("day23/day23-test.txt")
+	expected := "co,de,ka,ta"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
+	}
+}
+
+func Test23TwoReal(t *testing.T) {
+	val := day23.Part2("day23/day23.txt")
+	expected := "am,au,be,cm,fo,ha,hh,im,nt,os,qz,rr,so"
+	if val != expected {
+		t.Errorf("expected %s, got %s", expected, val)
 	}
 }
