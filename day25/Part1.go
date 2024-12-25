@@ -1,7 +1,6 @@
 package day25
 
 import (
-	"fmt"
 	"github.com/adriananderson/2024-advent-of-code/utils"
 	"strings"
 )
@@ -15,10 +14,10 @@ func Part1(fileName string) int {
 	for _, key := range keys {
 		for _, lock := range locks {
 			if keyFitsLock(key, lock) {
-				fmt.Printf("key %v fits lock %v\n", key, lock)
+				//fmt.Printf("key %v fits lock %v\n", key, lock)
 				result++
-			} else {
-				fmt.Printf("key %v DOES NOT FIT lock %v\n", key, lock)
+				//} else {
+				//	fmt.Printf("key %v DOES NOT FIT lock %v\n", key, lock)
 			}
 		}
 	}

@@ -39,6 +39,11 @@ func Part1(fileName string) int {
 }
 
 func evaluateGate(valueMap map[string]bool, wireGateMap map[string]Gate, gateLabel string) bool {
+	if len(gateLabel) == 0 {
+		fmt.Printf("gateLabel is empty\n")
+		return false
+	}
+
 	if value, exists := valueMap[gateLabel]; exists {
 		return value
 	}
